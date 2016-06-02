@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: docker-web-app-zeus-pod
+spec:
+  containers:
+    -   name: docker-web-app-zeus-container
+        image: vanderk/docker_web_app_zeus:v01
+        ports:
+            - containerPort: 8080
+        env:
+            -   name: ZEUS_TOKEN
+                value: "8dcccc00"
+  
+

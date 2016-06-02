@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: docker-web-app-zeus-rc
+spec:
+  replicas: 1
+  selector:
+    app: docker-web-app-zeus
+  template:
+    metadata:
+      name: docker-web-app-zeus
+      labels:
+        app: docker-web-app-zeus
+    spec:
+      containers:
+      - name: docker-web-app-zeus-container
+        image: vanderk/docker_web_app_zeus:v01
+        ports:
+        - containerPort: 8080
+        env:
+            -   name: ZEUS_TOKEN
+                value: "8dcccc00"
